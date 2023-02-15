@@ -24,11 +24,13 @@ void calcScore(int score) {
 }
 
 int main(int argc, char* argv[]) {
-    if (argc != 2) {
-        printf("Usage: %s <score>\n", argv[0]);
-        return 1;
+    printf("Enter a score: ");
+    int score = 0;
+    scanf("%d", &score);
+    if (score < 2){
+        printf("Exiting...\n");
+        return 0;
     }
-    int score = atoi(argv[1]);
     calcScore(score);
     return 0;
 }

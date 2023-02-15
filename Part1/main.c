@@ -22,7 +22,7 @@ void sortLists(struct Month *data){
             }
         }
     }
-    printf("finished");
+    // printf("finished");
 }
 int main(int argc, char const *argv[])
 {
@@ -64,9 +64,9 @@ int main(int argc, char const *argv[])
     
     
     printf("\nSales Summary:\n");
-    printf("Total Sales: $%0.2f\n", total);
-    printf("Highest Sales: %s - $%0.2f\n", *data[max].name, data[max].sales);
-    printf("Lowest Sales: %s - $%0.2f\n", *data[min].name, data[min].sales);
+    // printf("Total Sales: $%0.2f\n", total);
+    printf("Highest Sales: $%0.2f - (%s)\n", data[max].sales, *data[max].name);
+    printf("Lowest Sales: $%0.2f - (%s)\n", data[min].sales, *data[min].name);
     printf("Average Sales: $%0.2f\n", total/12);
 
 
@@ -81,6 +81,11 @@ int main(int argc, char const *argv[])
         printf("%s - %s: $%0.2f\n", cMonths[i], cMonths[i+6], avg/6);
     }
 
-    // sortLists(data);
+    sortLists(data); // Sort high to low
+    printf("\nSales Report (Highest to Lowest):\n");
+    for (int i = 0; i < 12; ++i)
+    {
+        printf("%s: $%0.2f\n", *data[i].name, data[i].sales);
+    }
     return 0;
 }
